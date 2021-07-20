@@ -6,7 +6,7 @@ import dialogflow
 from google.api_core.exceptions import InvalidArgument
 from google.protobuf.json_format import MessageToDict
 
-DIALOGFLOW_PROJECT_ID = "adani-test-poc-u9ym" # Ensure GCP Project ID is set
+DIALOGFLOW_PROJECT_ID = "gcp-demo-319814" # Ensure GCP Project ID is set
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./service-account-file.json" #If local machine
 
 DOMAINS_ALLOWED = "*" # You can restrict only for your sites here
