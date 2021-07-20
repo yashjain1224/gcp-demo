@@ -15,7 +15,7 @@ cors = CORS(app, resources={r"/*": {"origins": DOMAINS_ALLOWED}})
 
 @app.route('/')
 def index():
-    return 'The server is running... Yaayy!!!'
+    return 'The server is running... Yaayy!!!, Congratulations team!!!'
 
 @app.route('/get_dialogflow_agent', methods=['GET'])
 def get_dialogflow_account_details():
