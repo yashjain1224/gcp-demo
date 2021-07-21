@@ -11,15 +11,13 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./service-account-file.json" #If
 
 DOMAINS_ALLOWED = "*" # You can restrict only for your sites here
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": DOMAINS_ALLOWED}})
+cors = CORS(app, resources={r"/get_dialogflow_agent": {"origins": DOMAINS_ALLOWED}})
 
 @app.route('/')
-@cross_origin()
 def index():
     return 'The server is running... Yaayy!!!, Congratulations team!!!'
 
 @app.route('/get_dialogflow_agent', methods=['GET'])
-@cross_origin()
 def get_dialogflow_account_details():
     client = dialogflow.AgentsClient()
     parent = client.project_path(DIALOGFLOW_PROJECT_ID)
@@ -27,7 +25,6 @@ def get_dialogflow_account_details():
     return make_response(jsonify(MessageToDict(details)))
 
 @app.route('/detect_intent', methods=['POST'])
-@cross_origin()
 def get_response_for_query():
     input_ = request.get_json(force=True)
     session_id = input_["session"]
