@@ -11,7 +11,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./service-account-file.json" #If
 
 DOMAINS_ALLOWED = "*" # You can restrict only for your sites here
 app = Flask(__name__)
-cors = CORS(app, resources={r"/get_dialogflow_agent": {"origins": DOMAINS_ALLOWED}})
+cors = CORS(app, resources={r"/*": {"origins": DOMAINS_ALLOWED}})
 
 @app.route('/')
 def index():
